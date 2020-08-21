@@ -1,10 +1,18 @@
 <?php
 
+$logFile = fopen("log-mp-tres.txt", 'a') or die("Error creando archivo");
+fwrite($logFile, print_r($_GET, true));
+fclose($logFile);
+
+$logFile = fopen("log-mp-cuatro.txt", 'a') or die("Error creando archivo");
+fwrite($logFile, print_r($_GET, true));
+fclose($logFile);
+
 
 $json_event = file_get_contents('php://input', true);
 
 $logFile = fopen("log-mp-uno.txt", 'a') or die("Error creando archivo");
-fwrite($logFile, file_put_contents($json_event));
+fwrite($logFile, json_encode($json_event));
 fclose($logFile);
 
 
