@@ -1,7 +1,10 @@
 <?php
 
-$logFile = fopen("log.txt", 'a') or die("Error creando archivo");
-fwrite($logFile, "\n webhook mercadopago \n \n");
+
+$json_event = file_get_contents('php://input', true);
+
+$logFile = fopen("log-mp-uno.txt", 'a') or die("Error creando archivo");
+fwrite($logFile, json_encode($json_event));
 fclose($logFile);
 
 
@@ -26,8 +29,8 @@ require_once 'vendor/autoload.php';
     }
 
 
-$logFile = fopen("log-mp.txt", 'a') or die("Error creando archivo");
-fwrite($logFile, $payment);
+$logFile = fopen("log-mp-dos.txt", 'a') or die("Error creando archivo");
+fwrite($logFile, print_r($payment));
 fclose($logFile);
 
 
