@@ -13,8 +13,8 @@
 
     $preference->payment_methods = array(
         "excluded_payment_methods" => array(
-          "id" => "amex",
-          "id" => "atm"
+          array("id" => "amex"),
+          array("id" => "atm")
         ),
         "installments" => 6
     );
