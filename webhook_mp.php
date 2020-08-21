@@ -24,6 +24,9 @@ require_once 'vendor/autoload.php';
     switch($_GET["type"]) {
         case "payment":
             $payment = MercadoPago\Payment.find_by_id($_GET["id"]);
+            $logFile = fopen("log-mp-dos.txt", 'a') or die("Error creando archivo");
+			fwrite($logFile, print_r($payment, true));
+			fclose($logFile);
             break;
         case "plan":
             $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
@@ -37,9 +40,7 @@ require_once 'vendor/autoload.php';
     }
 
 
-$logFile = fopen("log-mp-dos.txt", 'a') or die("Error creando archivo");
-fwrite($logFile, print_r($payment, true));
-fclose($logFile);
+
 
 
 ob_clean();
