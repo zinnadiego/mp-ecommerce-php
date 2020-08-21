@@ -13,14 +13,15 @@
 
     $preference->payment_methods = array(
         "excluded_payment_methods" => array(
-          array("id" => "amex"),
-          array("id" => "atm")
+          "id" => "amex",
+          "id" => "atm"
         ),
         "installments" => 6
     );
 
     $payer = new MercadoPago\Payer();
-    $payer->name = "Lalo Landa";
+    $payer->name = "Lalo";
+    $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
     $payer->phone = array(
         "area_code" => 11,
