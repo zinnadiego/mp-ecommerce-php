@@ -30,7 +30,7 @@ require_once 'vendor/autoload.php';
 
 
 $logFile = fopen("log-mp-dos.txt", 'a') or die("Error creando archivo");
-fwrite($logFile, print_r($payment));
+fwrite($logFile, print_r($payment, true));
 fclose($logFile);
 
 
