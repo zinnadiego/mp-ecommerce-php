@@ -54,7 +54,7 @@
     );
     $preference->auto_return = "approved";
     $preference->notification_url = "https://zinnadiego-mp-commerce-php.herokuapp.com/webhook_mp.php";
-
+    $preference->payer = $payer;
     $preference->save();
 
 ?>
