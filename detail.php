@@ -5,6 +5,8 @@
 
     MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398"); // Either 
     MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+
+
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
 
@@ -12,23 +14,22 @@
     $preference->payment_methods = array(
         "excluded_payment_methods" => array(
           array("id" => "amex"),
-          array("id" => "redlink")
+          array("id" => "atm")
         ),
         "installments" => 6
     );
 
     $payer = new MercadoPago\Payer();
-    $payer->name = "Lalo";
-    $payer->surname = "Landa";
+    $payer->name = "Lalo Landa";
     $payer->email = "test_user_63274575@testuser.com";
     $payer->phone = array(
-        "area_code" => "11",
-        "number" => "22223333"
+        "area_code" => 11,
+        "number" => 22223333
       );
       $payer->address = array(
-        "street_name" => "false",
-        "street_number" => 123,
-        "zip_code" => 1111
+        "street_name" => "False",
+        "street_number" => "123",
+        "zip_code" => "1111"
       );
 
 
@@ -38,7 +39,7 @@
     $item = new MercadoPago\Item();
     $item->id = 1234;
     $item->title = $_POST['title'];
-    $item->description = "Dispositivo móvil de Tiendae-commerce";
+    $item->description = "Dispositivo móvil de Tienda e-commerce";
     $item->picture_url = "https://zinnadiego-mp-commerce-php.herokuapp.com".$_POST['img'];
     $item->quantity = $_POST['unit'];
     $item->unit_price = $_POST['price'];
@@ -51,7 +52,7 @@
     "failure" => "https://zinnadiego-mp-commerce-php.herokuapp.com/rechazado.php",
     "pending" => "https://zinnadiego-mp-commerce-php.herokuapp.com/pending.php"
     );
-    $preference->auto_return = "all";
+    $preference->auto_return = "approved";
     $preference->notification_url = "https://zinnadiego-mp-commerce-php.herokuapp.com/webhook_mp.php";
 
     $preference->save();
