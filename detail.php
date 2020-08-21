@@ -47,12 +47,12 @@
     $preference->external_reference = "zinnadiego@gmail.com";
 
     $preference->back_urls = array(
-    "success" => "gracias.php",
-    "failure" => "rechazado.php",
-    "pending" => "pending.php"
+    "success" => "https://zinnadiego-mp-commerce-php.herokuapp.com/gracias.php",
+    "failure" => "https://zinnadiego-mp-commerce-php.herokuapp.com/rechazado.php",
+    "pending" => "https://zinnadiego-mp-commerce-php.herokuapp.com/pending.php"
     );
     $preference->auto_return = "all";
-    $preference->notification_url = "webhook_mp.php";
+    $preference->notification_url = "https://zinnadiego-mp-commerce-php.herokuapp.com/webhook_mp.php";
 
     $preference->save();
 
@@ -188,12 +188,7 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <form action="<?php echo $preference->init_point; ?>" method="POST">
-                                      <script
-                                       src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                       data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
-                                      </script>
-                                    </form>
+                                    <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
                                 </div>
                             </div>
                         </div>
